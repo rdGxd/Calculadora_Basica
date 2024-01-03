@@ -8,21 +8,37 @@ export const Home = () => {
     setValor(valor + e.currentTarget.value);
   };
 
+  const handleClickInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleCalculator();
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValor(e.currentTarget.value);
+  };
+
   const handleCalculator = () => {
     const resultado = eval(valor);
     setValor(resultado);
   };
 
   const handleDelete = () => {
-    const valorAtual = valor;
+    const valorAtual = valor.toString();
     const novoValor = valorAtual.substring(0, valorAtual.length - 1);
     setValor(novoValor);
   };
 
   return (
-    <div className="mt-52 flex content-center items-center justify-center rounded bg-white">
+    <div className="mt-20 flex content-center items-center justify-center rounded bg-white">
       <div className="grid h-full grid-cols-1 gap-2 p-2 outline outline-1">
-        <input value={valor} className="border  border-black bg-white p-4 " />
+        <input
+          className="border border-black bg-white p-4"
+          value={valor}
+          type="text"
+          onChange={handleInputChange}
+          onKeyDown={handleClickInput}
+        />
         <div className="mr-10 mt-5 ">
           <button
             className="ml-5 w-1/6 rounded border border-black p-4"
