@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { InputValue } from "../../components";
 
 export const Home = () => {
   const [valor, setValor] = useState("");
@@ -10,7 +9,8 @@ export const Home = () => {
   };
 
   const handleCalculator = () => {
-    console.log(valor);
+    const resultado = eval(valor);
+    setValor(resultado);
   };
 
   const handleDelete = () => {
@@ -22,7 +22,7 @@ export const Home = () => {
   return (
     <div className="mt-52 flex content-center items-center justify-center rounded bg-white">
       <div className="grid h-full grid-cols-1 gap-2 p-2 outline outline-1">
-        <InputValue value={valor} />
+        <input value={valor} className="border  border-black bg-white p-4 " />
         <div className="mr-10 mt-5 ">
           <button
             className="ml-5 w-1/6 rounded border border-black p-4"
