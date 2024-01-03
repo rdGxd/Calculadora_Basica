@@ -3,12 +3,5 @@ interface IInputValue {
 }
 
 export const InputValue = ({ value }: IInputValue) => {
-  return (
-    <input
-      type="text"
-      value={value}
-      defaultValue={""}
-      className="border  border-black bg-white p-4 "
-    />
-  );
+  return <input value={value} className="border  border-black bg-white p-4 " />;
 };

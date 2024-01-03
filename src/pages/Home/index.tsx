@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Button, InputValue } from "../../components/index";
+import { InputValue } from "../../components";
 
 export const Home = () => {
   const [valor, setValor] = useState("");
@@ -7,6 +7,16 @@ export const Home = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setValor(valor + e.currentTarget.value);
+  };
+
+  const handleCalculator = () => {
+    console.log(valor);
+  };
+
+  const handleDelete = () => {
+    const valorAtual = valor;
+    const novoValor = valorAtual.substring(0, valorAtual.length - 1);
+    setValor(novoValor);
   };
 
   return (
@@ -30,26 +40,142 @@ export const Home = () => {
           >
             {8}
           </button>
-          <Button number="9" />
-          <Button number="*" />
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={9}
+          >
+            {9}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={"*"}
+          >
+            {"*"}
+          </button>
         </div>
         <div className="mr-10">
-          <Button number="4" />
-          <Button number="5" />
-          <Button number="6" />
-          <Button number="-" />
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={4}
+          >
+            {4}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={5}
+          >
+            {5}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={6}
+          >
+            {6}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={"-"}
+          >
+            {"-"}
+          </button>
         </div>
         <div className="mr-10">
-          <Button number="1" />
-          <Button number="2" />
-          <Button number="3" />
-          <Button number="+" />
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={1}
+          >
+            {1}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={2}
+          >
+            {2}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={3}
+          >
+            {3}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={"+"}
+          >
+            {"+"}
+          </button>
+        </div>
+        <div className="mr-10">
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={"/"}
+          >
+            {"/"}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={0}
+          >
+            {0}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleClick}
+            ref={refButton}
+            value={"."}
+          >
+            {"."}
+          </button>
+          <button
+            className="ml-5 w-1/6 rounded border border-black p-4"
+            onClick={handleCalculator}
+            ref={refButton}
+            value={"="}
+          >
+            {"="}
+          </button>
         </div>
         <div className="mb-10 mr-10">
-          <Button number="/" />
-          <Button number="0" />
-          <Button number="." />
-          <Button number="=" />
+          <button
+            className="ml-5 rounded border border-black p-4"
+            onClick={() => setValor("")}
+            ref={refButton}
+            value={"Limpar"}
+          >
+            {"Limpar"}
+          </button>
+          <button
+            className="ml-5  rounded border border-black p-4"
+            onClick={handleDelete}
+            ref={refButton}
+            value={""}
+          >
+            {"Apagar"}
+          </button>
         </div>
       </div>
     </div>
