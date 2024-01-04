@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { Button } from "../../components/Button";
+import { Display1 } from "../../components/Display";
 
 export const Home = () => {
   const [valor, setValor] = useState("");
@@ -37,167 +39,43 @@ export const Home = () => {
   return (
     <div className="mt-20 flex content-center items-center justify-center rounded bg-gray-500">
       <div className="grid h-full grid-cols-1 gap-2 p-2 outline outline-1">
-        <input
-          className="INPUT border bg-white p-4 text-bold"
+        <Display1
+          fnChange={handleInputChange}
+          fnKeyDown={handleClickInput}
           value={valor}
-          type="text"
-          onChange={handleInputChange}
-          onKeyDown={handleClickInput}
-          ref={refInput}
+          refInput={refInput}
         />
         <div className="mr-10 mt-5 ">
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={7}
-          >
-            {7}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={8}
-          >
-            {8}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={9}
-          >
-            {9}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={"*"}
-          >
-            {"*"}
-          </button>
+          <Button value="9" refButton={refButton} fn={handleClick} />
+          <Button value="8" refButton={refButton} fn={handleClick} />
+          <Button value="7" refButton={refButton} fn={handleClick} />
+          <Button value="*" refButton={refButton} fn={handleClick} />
         </div>
         <div className="mr-10">
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={4}
-          >
-            {4}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={5}
-          >
-            {5}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={6}
-          >
-            {6}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={"-"}
-          >
-            {"-"}
-          </button>
+          <Button value="4" refButton={refButton} fn={handleClick} />
+          <Button value="5" refButton={refButton} fn={handleClick} />
+          <Button value="6" refButton={refButton} fn={handleClick} />
+          <Button value="-" refButton={refButton} fn={handleClick} />
         </div>
         <div className="mr-10">
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={1}
-          >
-            {1}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={2}
-          >
-            {2}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={3}
-          >
-            {3}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={"+"}
-          >
-            {"+"}
-          </button>
+          <Button value="3" refButton={refButton} fn={handleClick} />
+          <Button value="2" refButton={refButton} fn={handleClick} />
+          <Button value="1" refButton={refButton} fn={handleClick} />
+          <Button value="+" refButton={refButton} fn={handleClick} />
         </div>
         <div className="mr-10">
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={"/"}
-          >
-            {"/"}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={0}
-          >
-            {0}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleClick}
-            ref={refButton}
-            value={"."}
-          >
-            {"."}
-          </button>
-          <button
-            className="ml-5 w-1/6 rounded border bg-black p-4 text-white"
-            onClick={handleCalculator}
-            ref={refButton}
-            value={"="}
-          >
-            {"="}
-          </button>
+          <Button value="/" refButton={refButton} fn={handleClick} />
+          <Button value="0" refButton={refButton} fn={handleClick} />
+          <Button value="." refButton={refButton} fn={handleClick} />
+          <Button value="=" refButton={refButton} fn={handleCalculator} />
         </div>
         <div className="mb-10 mr-10">
-          <button
-            className="ml-5 rounded border bg-black p-4 text-white"
-            onClick={() => setValor("")}
-            ref={refButton}
-            value={"Limpar"}
-          >
-            {"Limpar"}
-          </button>
-          <button
-            className="ml-5  rounded border bg-black p-4 text-white"
-            onClick={handleDelete}
-            ref={refButton}
-            value={""}
-          >
-            {"Apagar"}
-          </button>
+          <Button
+            value="Limpar"
+            refButton={refButton}
+            fn={() => setValor("")}
+          />
+          <Button value="Apagar" refButton={refButton} fn={handleDelete} />
         </div>
       </div>
     </div>
